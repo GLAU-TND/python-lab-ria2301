@@ -1,22 +1,18 @@
-class MyException:
+class MyException(Exception):
     def __init__(self , v):
         self.v = v
-        print(self.v)
+    def __str__(self):
+        return self.v
 
 
 
 def Xyz(a,b):
     sum=0
-    try:
-        sum=a+b
-        if sum<150:
-            raise MyException("Custom Exception Occured")
-        else:
-            print(sum)
-    except:
-            pass
-    
-
+    sum=a+b
+    if sum<150:
+        raise MyException("Custom Exception Occured")
+    else:
+        print(sum)
 
 a = int(input())
 b=int(input())
